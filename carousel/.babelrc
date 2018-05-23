@@ -1,0 +1,27 @@
+{
+  "sourceMaps": true,
+  "presets": ["@babel/react", ["@babel/env", {
+    "targets": {
+      "browsers": [
+        "safari >= 9",
+        "ie 11",
+        "last 2 Chrome versions",
+        "last 2 Firefox versions",
+        "edge 13",
+        "ios_saf 9.0-9.2",
+        "ie_mob 11",
+        "Android >= 4"
+      ],
+      "debug": false,
+      "loose": false,
+      "modules": false,
+      "useBuiltIns": true
+    }
+  }]],
+  "plugins": [
+    ["@babel/transform-runtime", { "helpers": false, "polyfill": false, "regenerator": true }],
+    "add-module-exports",
+    "@babel/proposal-class-properties",
+    "@babel/proposal-object-rest-spread"
+  ]
+}
