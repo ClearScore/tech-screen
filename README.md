@@ -1,4 +1,4 @@
-![ClearScore](https://raw.githubusercontent.com/ClearScore/tech-screen/master/assets/clearscore.png?token=ABpdw5m-hB7aVWCKaYGpucwwUt438SHLks5atOQHwA%3D%3D)
+![ClearScore](https://github.com/ClearScore/tech-screen/blob/master/assets/clearscore.png)
 
 # Tech-screen
 
