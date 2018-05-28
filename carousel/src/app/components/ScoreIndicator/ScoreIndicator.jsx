@@ -15,7 +15,7 @@ const SmallText = styled.p`
 
 const BigText = styled.p`
   font-size: 4em;
-  color: powderblue;
+  color: lightskyblue;
   font-weight: bolder;
   margin-bottom: 3px;
   @media only screen and (min-width: 992px) {
