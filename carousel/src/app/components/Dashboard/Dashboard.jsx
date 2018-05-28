@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
+import reactFauxDOM from 'react-faux-dom';
+import * as d3 from 'd3';
 import ScoreIndicator from '../ScoreIndicator/ScoreIndicator';
 import DebtIndicator from '../DebtIndicator/DebtIndicator';
 import creditReport from '../../creditReport';
+
 import './dashboard.scss';
+
+const Carousel = styled.div`
+  text-align: center;
+`;
 
 const details = creditReport.creditReport.creditReportInfo;
 class Dashboard extends Component {
@@ -21,7 +29,7 @@ class Dashboard extends Component {
     else return <DebtIndicator debt={details.currentLongTermDebt} />;
   };
   render() {
-    return <div className="container-sliders">{this.renderSlides()}</div>;
+    return <Carousel className="carousel">{this.renderSlides()}</Carousel>;
   }
 }
 export default Dashboard;

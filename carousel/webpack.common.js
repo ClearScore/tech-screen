@@ -12,31 +12,31 @@ module.exports = {
   context: SRC,
   entry: {
     app: [`${SRC}/client-entry.jsx`],
-    polyfills: [`${SRC}/polyfills.js`],
+    polyfills: [`${SRC}/polyfills.js`]
   },
   output: {
     path: DIST,
     filename: '[name]-[chunkhash].js',
-    publicPath: '/',
+    publicPath: '/'
   },
   plugins: [
     new ProgressBarPlugin(),
     new webpack.HashedModuleIdsPlugin(),
     new Visualizer({
-      filename: '../webpack-stats.html',
+      filename: '../webpack-stats.html'
     }),
     new ExtractTextPlugin('[name]-[hash].css'),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env.PORT': JSON.stringify(process.env.PORT),
       'process.env.DEBUG': JSON.stringify(process.env.DEBUG),
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     }),
-    new AssetsPlugin({ filename: 'compiled/webpack-assets.json' }),
+    new AssetsPlugin({ filename: 'compiled/webpack-assets.json' })
   ],
   resolve: {
     modules: ['node_modules', SRC],
-    extensions: ['.js', '.jsx', '.scss'],
+    extensions: ['.js', '.jsx', '.scss']
   },
   module: {
     rules: [
@@ -45,31 +45,29 @@ module.exports = {
         include: [/src/],
         loader: 'babel-loader',
         options: {
-          cacheDirectory: true,
-        },
+          cacheDirectory: true
+        }
       },
       {
         test: /\.s?css$/,
         include: [/src/],
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: ['css-loader', 'postcss-loader', 'sass-loader'],
-        }),
+          use: ['css-loader', 'postcss-loader', 'sass-loader']
+        })
       },
       {
         test: /\.(jpe?g|png|gif)$/i,
-        use: [
-          'file-loader?name=[name].[ext]',
-        ],
+        use: ['file-loader?name=[name].[ext]']
       },
       {
         test: /\.svg$/,
         include: [/src/],
         loader: 'svg-inline-loader',
         options: {
-          removeSVGTagAttrs: false,
-        },
-      },
-    ],
-  },
+          removeSVGTagAttrs: false
+        }
+      }
+    ]
+  }
 };

@@ -3,16 +3,22 @@ import styled from 'styled-components';
 import './debtIndicator.scss';
 
 const SmallText = styled.p`
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: #fff;
   margin-bottom: 5px;
+  @media only screen and (min-width: 768px) {
+    font-size: 1.8rem;
+  }
 `;
 
 const BigText = styled.p`
-  font-size: 4.5rem;
+  font-size: 4rem;
   color: powderblue;
   font-weight: bolder;
   margin-bottom: 5px;
+  @media only screen and (min-width: 992px) {
+    font-size: 4.5rem;
+  }
 `;
 
 const DebtIndicator = props => {
