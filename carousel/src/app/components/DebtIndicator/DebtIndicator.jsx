@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import './debtIndicator.scss';
 
 const SmallText = styled.p`
   font-size: 1.2rem;
@@ -13,7 +12,7 @@ const SmallText = styled.p`
 
 const BigText = styled.p`
   font-size: 4rem;
-  color: powderblue;
+  color: lightskyblue;
   font-weight: bolder;
   margin-bottom: 5px;
   @media only screen and (min-width: 992px) {
