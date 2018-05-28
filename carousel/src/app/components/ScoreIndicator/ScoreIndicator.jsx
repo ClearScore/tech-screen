@@ -2,16 +2,25 @@ import React from 'react';
 import styled from 'styled-components';
 
 const SmallText = styled.p`
-  font-size: 1.8rem;
+  font-size: 1.3rem;
   color: #fff;
   margin-bottom: 3px;
+  @media only screen and (min-width: 768px) {
+    font-size: 1.5rem;
+  }
+  @media only screen and (min-width: 992px) {
+    font-size: 1.8rem;
+  }
 `;
 
 const BigText = styled.p`
-  font-size: 4.5rem;
+  font-size: 4em;
   color: powderblue;
   font-weight: bolder;
   margin-bottom: 3px;
+  @media only screen and (min-width: 992px) {
+    font-size: 4.5rem;
+  }
 `;
 
 const ScoreIndicator = props => {
