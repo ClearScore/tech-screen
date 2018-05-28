@@ -1,13 +1,23 @@
 @import '../../styles/utils/colours';
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
-$nav-height: 2em;
-$footer-height: 2em;
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Roboto;
+}
+
+$nav-height: 25%;
+$footer-height: 25%;
 $content-height: calc(100vh - #{$nav-height + $footer-height});
 $col1-width: 33% !default;
 $col2-width: 66% !default;
 
 .layout {
-  height: 100%;
+  height: 100vh;
   width: 100%;
 }
 
@@ -36,11 +46,14 @@ $col2-width: 66% !default;
 }
 
 .layout__content {
-  height: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   max-height: $content-height;
   padding: 0 2.25%;
 
-  &::before ,
+  &::before,
   &::after {
     content: '';
     display: table;
@@ -52,4 +65,16 @@ $col2-width: 66% !default;
   padding: 0 2.25%;
   height: $footer-height;
   line-height: 2em;
+}
+
+.container-circle {
+  background-color: rgba(14, 13, 13, 0.6);
+  border: 1px solid #fff;
+  border-radius: 50%;
+  width: 450px;
+  height: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
 }

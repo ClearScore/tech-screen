@@ -1,6 +1,7 @@
 import Router from 'koa-router';
 import koaStatic from 'koa-static';
 import debug from 'debug';
+import fetch from 'node-fetch';
 
 import renderApp from './middleware/SSR-react-app';
 import { DIST } from '../config/paths';
@@ -13,8 +14,5 @@ staticRoute._name = 'koaStatic /dist'; // eslint-disable-line no-underscore-dang
 
 export function setRoutes(assets) {
   log('adding react routes');
-
-  router
-    .use(staticRoute)
-    .get('/(.*)', renderApp(assets));
+  router.use(staticRoute).get('/(.*)', renderApp(assets));
 }
