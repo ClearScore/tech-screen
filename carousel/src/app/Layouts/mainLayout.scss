@@ -69,10 +69,9 @@ $col2-width: 66% !default;
 
 .container-circle {
   background-color: rgba(14, 13, 13, 0.4);
-  // border: 1px solid #fff;
   border-radius: 50%;
-  width: 500px;
-  height: 500px;
+  width: 300px;
+  height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -81,19 +80,26 @@ $col2-width: 66% !default;
   position: absolute;
 }
 .carousel {
-  width: 500px;
-  height: 500px;
+  width: 300px;
+  height: 300px;
   text-align: center;
-  // @media only screen and (min-width: 768px) {
-  //   width: 400px;
-  //   height: 400px;
-  // }
-  // @media only screen and (min-width: 992px) {
-  //   width: 500px;
-  //   height: 500px;
-  // }
 }
 .arc {
   position: absolute;
   z-index: -1;
+}
+
+@media only screen and (min-width: 768px) {
+  .container-circle,
+  .carousel {
+    width: 400px;
+    height: 400px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .container-circle,
+  .carousel {
+    width: 500px;
+    height: 500px;
+  }
 }

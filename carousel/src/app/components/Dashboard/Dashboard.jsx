@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Carousel from './../Carousel';
+import root from 'window-or-global';
 import creditReport from '../../creditReport';
 
 import './dashboard.scss';

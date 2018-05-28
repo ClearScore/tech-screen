@@ -1,19 +1,20 @@
+// const size = root.window.innerWidth < 768 ? (992 ? '500' : '400') : '300';
+
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import * as d3 from 'd3';
+import root from 'window-or-global';
 import ScoreIndicator from './ScoreIndicator/ScoreIndicator';
 import DebtIndicator from './DebtIndicator/DebtIndicator';
 
 class Carousel extends Component {
   state = {
-    index: 0,
-    size: 500
+    index: 0
   };
 
   componentDidMount() {
     window.setInterval(this.changeSlide, 3000);
-    window.setTimeout(this.drawArc, 500);
-    // this.drawArc();
+    this.drawArc();
   }
 
   changeSlide = () => {
@@ -27,6 +28,14 @@ class Carousel extends Component {
     this.setForeground(context);
   };
 
+  calcuateWidth = () => {
+    let size;
+    if (992 < root.window.innerWidth) size = 500;
+    else if (768 < root.window.innerWidth) size = 400;
+    else size = 300;
+    return size;
+  };
+
   renderSlides = () => {
     if (this.state.index === 0)
       return <ScoreIndicator score={this.props.score} />;
@@ -34,7 +43,7 @@ class Carousel extends Component {
   };
 
   setContext() {
-    const size = this.state.size;
+    let size = this.calcuateWidth();
     return d3
       .select(this.refs.arc)
       .append('svg')
@@ -42,7 +51,7 @@ class Carousel extends Component {
       .attr('width', size)
       .attr('id', 'd3-arc')
       .append('g')
-      .attr('transform', `translate(250, 250)`);
+      .attr('transform', `translate(${size / 2}, ${size / 2})`);
   }
   setBackground(context) {
     return context
@@ -55,7 +64,7 @@ class Carousel extends Component {
   tau = Math.PI * 2;
 
   arc() {
-    const size = this.state.size;
+    let size = this.calcuateWidth();
     return d3
       .arc()
       .innerRadius(size / 2 - 5)
