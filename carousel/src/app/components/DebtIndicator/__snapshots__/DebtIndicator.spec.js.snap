@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DebtIndicator renders correctly 1`] = `
+<div
+  className="container-circle"
+>
+  <div
+    className="container-text"
+  >
+    <styled.p>
+      Your long term debt total
+    </styled.p>
+    <styled.p>
+       £ 
+    </styled.p>
+    <styled.p>
+      Total credit limit 0
+    </styled.p>
+  </div>
+</div>
+`;
