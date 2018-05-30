@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ScoreIndicator renders correctly 1`] = `
+<div
+  className="container-circle"
+>
+  <div
+    className="container-text"
+  >
+    <styled.p>
+      Your credit score is
+    </styled.p>
+    <styled.p />
+    <styled.p>
+      out of 700
+    </styled.p>
+  </div>
+</div>
+`;
