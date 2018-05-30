@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import * as d3 from 'd3';
 import root from 'window-or-global';
-import ScoreIndicator from './ScoreIndicator/ScoreIndicator';
-import DebtIndicator from './DebtIndicator/DebtIndicator';
-import Arc from './Arc';
+import ScoreIndicator from './../ScoreIndicator/ScoreIndicator';
+import DebtIndicator from './../DebtIndicator/DebtIndicator';
+import Arc from './../Arc/Arc';
 
 class Carousel extends Component {
   state = {
@@ -23,7 +22,7 @@ class Carousel extends Component {
     else return <DebtIndicator debt={this.props.debt} />;
   };
   render() {
-    const size = 500;
+    // const size = 500;
     const score = this.props.score;
     return (
       <div className="carousel">

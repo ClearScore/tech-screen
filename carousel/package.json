@@ -5,17 +5,14 @@
   "main": "src/server-entry.js",
   "scripts": {
     "------ BUILD STEPS ------": "",
-    "build":
-      "rimraf compiled && yarn compile:server && yarn compile && node scripts/copy-assets.js",
+    "build": "rimraf compiled && yarn compile:server && yarn compile && node scripts/copy-assets.js",
     "compile": "webpack --config webpack.config.prod.js -p",
     "compile:prod": "npm run compile",
-    "compile:dev":
-      "cross-env ENV=dev webpack --config src/config/webpack.config.dev.js",
+    "compile:dev": "cross-env ENV=dev webpack --config src/config/webpack.config.dev.js",
     "compile:server": "babel src -d compiled --ignore spec.js,test.js",
     "------ SERVER STEPS ------": "",
     "start": "node compiled/server-entry.js",
-    "start:webpack":
-      "cross-env ENV=dev webpack-dev-server --config webpack-dev-server.js",
+    "start:webpack": "cross-env ENV=dev webpack-dev-server --config webpack-dev-server.js",
     "start:dev": "cross-env ENV=dev nodemon src/server-entry.js",
     "start:cc": "concurrently \"npm run start:webpack\" \"npm run start:dev\" ",
     "------ TESTING ------": "",
@@ -91,6 +88,7 @@
     "cross-env": "^5.1.4",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.3",
     "express": "^4.16.3",
     "file-loader": "^1.1.11",
     "http-proxy": "^1.16.2",
