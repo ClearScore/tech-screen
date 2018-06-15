@@ -3,7 +3,7 @@
 # Tech-screen
 
 This repo contains multiple apps.  The concept is to enable developers to pick and choose which tech problem(s) they would like to solve.
-  
+
 But first, a little bit about us...
 
 ## About ClearScore
@@ -25,7 +25,7 @@ We are currently working with...
  * A stylish solution with unit test coverage
  * Clean, concise code
  * A detailed README
- * A live site we can see (if possible) 
+ * A live site we can see (if possible)
 
 ## Apps
 
@@ -33,5 +33,6 @@ We are currently working with...
 
  * [Carousel](/carousel) \[4 hours] \[Front-end] \[React]
    * A Front-end focused app which requires a new carousel
- * ...
+ * [Idea Board](/idea-board) \[2-3 hours] \[Front-end] \[React]
+   * Idea board app where you can create, update, delete and sort items.
 
