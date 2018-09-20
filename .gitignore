@@ -11,3 +11,4 @@ tests_screenshots/
 *.iml
 *.log
 webpack-stats.json
+.history/
