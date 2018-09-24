@@ -9,19 +9,20 @@ export class IdeaBoard extends React.Component {
           {
             title: 'Default Idea',
             description: 'This is the default description of an idea',
-            createdDate: new Date().toString,
+            createdDate: new Date(),
             updatedDate: ''
           },
         ],
         newIdea: {
-          title: 'New Idea',
+          title: '',
           description: '',
           createdDate: '',
           updatedDate: ''
         }
       }
       this.updateTitle = this.updateTitle.bind(this);
-      this.updateNewIdeaTitle = this.updateNewIdeaTitle.bind(this);
+      this.updateNewIdea = this.updateNewIdea.bind(this);
+      this.submitUpdateIdea = this.submitUpdateIdea.bind(this);
       this.submitNewIdea = this.submitNewIdea.bind(this);
   }
   updateTitle (idea, newTitle) {
@@ -32,18 +33,24 @@ export class IdeaBoard extends React.Component {
       this.setState({ideas: allIdeas});
     }
   };
-  updateNewIdeaTitle (event) {
+  updateNewIdea (event, field) {
     event.persist();
     this.setState(previousState => ({
-      newIdea: {...previousState.newIdea, title: event.target.value}
+      newIdea: {...previousState.newIdea, [field]: event.target.value}
     }));
+  };
+  submitUpdateIdea (event, ideaToUpdate, ideaToReplace) {
+    //TODO: replace the idea updated
+    console.log('ideaToUpdate ', ideaToUpdate);
+    console.log('ideas: ', this.state.ideas);
   };
   submitNewIdea () {
     let ideaToAdd = this.state.newIdea;
+    ideaToAdd.createdDate = new Date();
     this.setState(previousState => ({
       ideas: [...previousState.ideas, ideaToAdd],
       newIdea: {
-        title: 'New Idea',
+        title: '',
         description: '',
         createdDate: '',
         updatedDate: ''
@@ -61,17 +68,16 @@ export class IdeaBoard extends React.Component {
               <IdeaCell key={key}
                 idea={idea}
                 updateTitle={this.updateTitle}
-                // editIdea={this.editIdea}
+                submitUpdateIdea={this.submitUpdateIdea}
               />
             ))
           }
           <IdeaCell key={state.ideas.length}
             idea={state.newIdea}
-            updateNewIdeaTitle={this.updateNewIdeaTitle}
+            updateNewIdea={this.updateNewIdea}
             isNewIdea={true}
             newIdea={state.newIdea}
             submitNewIdea={this.submitNewIdea}
-            // editIdea={this.editIdea}
           />
         </div>
       </div>

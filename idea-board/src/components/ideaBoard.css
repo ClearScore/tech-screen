@@ -22,3 +22,9 @@
   flex-direction: column;
   justify-content: space-between;
 }
+.idea-cell {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-around;
+}
