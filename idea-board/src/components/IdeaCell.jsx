@@ -32,8 +32,8 @@ export class IdeaCell extends React.Component {
       ideaUpdating: {...previousState.ideaUpdating, [field]: event.target.value}
     }));
   };
-  updateIdeaHandler(event) {
-    this.props.submitUpdateIdea(event, this.state.ideaUpdating, this.props.idea);
+  updateIdeaHandler() {
+    this.props.submitUpdateIdea(this.state.ideaUpdating, this.props.idea);
     this.setState({
       ideaUpdating,
       isUpdatingIdea: false
@@ -43,12 +43,15 @@ export class IdeaCell extends React.Component {
   displayIdea(idea) {
     return (
       <div className="idea-cell">
-        <button className="edit-idea" onClick={this.editIdea}>...</button>
-        <label>{idea.title}</label>
+        <div className="edit-idea-container">
+          <button className="edit-idea" onClick={this.editIdea}>Edit</button>
+          <label>{idea.title}</label>
+        </div>
         <div className="idea-cell-description">
           {idea.description}
         </div>
-        <MomentComponent className="idea-cell-creation-date" dateToCompare={idea.createdDate}>
+        Idea created or updated: 
+        <MomentComponent className="idea-cell-creation-date" dateToCompare={idea.updatedDate || idea.createdDate}>
         </MomentComponent>
       </div>
     )
@@ -67,7 +70,7 @@ export class IdeaCell extends React.Component {
           className="update-description"
           value={idea.description}
           onChange={eve => this.updateIdeaField(eve, 'description')}/>
-        <button className="update-idea-button" onClick={event => this.updateIdeaHandler(event)}>Update Idea</button>
+        <button className="update-idea-button" onClick={this.updateIdeaHandler}>Update Idea</button>
       </div>
     )
   }
