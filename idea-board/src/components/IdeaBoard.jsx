@@ -20,19 +20,10 @@ export class IdeaBoard extends React.Component {
           updatedDate: ''
         }
       }
-      this.updateTitle = this.updateTitle.bind(this);
       this.updateNewIdea = this.updateNewIdea.bind(this);
       this.submitUpdateIdea = this.submitUpdateIdea.bind(this);
       this.submitNewIdea = this.submitNewIdea.bind(this);
   }
-  updateTitle (idea, newTitle) {
-    let allIdeas = this.state.ideas;
-    let ideaToUpdate = allIdeas.find(ideaToFind => ideaToFind === idea);
-    if (ideaToUpdate) {
-      ideaToUpdate.title = newTitle;
-      this.setState({ideas: allIdeas});
-    }
-  };
   updateNewIdea (event, field) {
     event.persist();
     this.setState(previousState => ({
@@ -40,9 +31,11 @@ export class IdeaBoard extends React.Component {
     }));
   };
   submitUpdateIdea (event, ideaToUpdate, ideaToReplace) {
-    //TODO: replace the idea updated
-    console.log('ideaToUpdate ', ideaToUpdate);
-    console.log('ideas: ', this.state.ideas);
+    let allIdeas = this.state.ideas;
+    let allOtherIdeas = allIdeas.filter(idea => idea !== ideaToReplace);
+    this.setState({
+      ideas: [...allOtherIdeas, ideaToUpdate]
+    });
   };
   submitNewIdea () {
     let ideaToAdd = this.state.newIdea;
@@ -67,7 +60,6 @@ export class IdeaBoard extends React.Component {
             state.ideas.map((idea, key) => (
               <IdeaCell key={key}
                 idea={idea}
-                updateTitle={this.updateTitle}
                 submitUpdateIdea={this.submitUpdateIdea}
               />
             ))

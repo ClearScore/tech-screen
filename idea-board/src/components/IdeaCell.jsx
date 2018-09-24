@@ -14,6 +14,7 @@ export class IdeaCell extends React.Component {
       }
       this.editIdea = this.editIdea.bind(this);
       this.updateIdeaField = this.updateIdeaField.bind(this);
+      this.updateIdeaHandler = this.updateIdeaHandler.bind(this);
   }
   editIdea () {
     this.setState({
@@ -27,6 +28,18 @@ export class IdeaCell extends React.Component {
       ideaUpdating: {...previousState.ideaUpdating, [field]: event.target.value}
     }));
   };
+  updateIdeaHandler(event) {
+    this.props.submitUpdateIdea(event, this.state.ideaUpdating, this.props.idea);
+    this.setState({
+      ideaUpdating:  {
+        title: '',
+        description: '',
+        createdDate: '',
+        updatedDate: ''
+      },
+      isUpdatingIdea: false
+    });
+  }
   render () {
     let state = this.state;
     let props = this.props;
@@ -56,7 +69,7 @@ export class IdeaCell extends React.Component {
               className="update-description"
               value={state.ideaUpdating.description}
               onChange={eve => this.updateIdeaField(eve, 'description')}/>
-            <button className="update-idea-button" onClick={event => props.submitUpdateIdea(event, state.ideaUpdating, props.idea)}>Update Idea</button>
+            <button className="update-idea-button" onClick={event => this.updateIdeaHandler(event)}>Update Idea</button>
           </div>
         }
         
