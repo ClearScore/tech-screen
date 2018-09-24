@@ -1,17 +1,21 @@
 import React from 'react';
 import MomentComponent from './MomentComponent';
+
+const ideaUpdating = {
+  title: '',
+  description: '',
+  createdDate: '',
+  updatedDate: ''
+};
+
 export class IdeaCell extends React.Component {
   constructor (props) {
       super(props);
       this.state = {
-        ideaUpdating: {
-          title: '',
-          description: '',
-          createdDate: '',
-          updatedDate: ''
-        },
+        ideaUpdating,
         isUpdatingIdea: false
       }
+      this.displayIdea = this.displayIdea.bind(this);
       this.editIdea = this.editIdea.bind(this);
       this.updateIdeaField = this.updateIdeaField.bind(this);
       this.updateIdeaHandler = this.updateIdeaHandler.bind(this);
@@ -31,66 +35,70 @@ export class IdeaCell extends React.Component {
   updateIdeaHandler(event) {
     this.props.submitUpdateIdea(event, this.state.ideaUpdating, this.props.idea);
     this.setState({
-      ideaUpdating:  {
-        title: '',
-        description: '',
-        createdDate: '',
-        updatedDate: ''
-      },
+      ideaUpdating,
       isUpdatingIdea: false
     });
+  }
+  //Content renderers: 
+  displayIdea(idea) {
+    return (
+      <div className="idea-cell">
+        <button className="edit-idea" onClick={this.editIdea}>...</button>
+        <label>{idea.title}</label>
+        <div className="idea-cell-description">
+          {idea.description}
+        </div>
+        <MomentComponent className="idea-cell-creation-date" dateToCompare={idea.createdDate}>
+        </MomentComponent>
+      </div>
+    )
+  }
+  displayEditIdea(idea) {
+    return (
+      <div className="idea-cell updating-idea">
+        <input 
+          type="text"
+          className="update-title"
+          value={idea.title}
+          onChange={eve => this.updateIdeaField(eve, 'title')}/>
+        <label>Description: </label>
+        <input 
+          type="text"
+          className="update-description"
+          value={idea.description}
+          onChange={eve => this.updateIdeaField(eve, 'description')}/>
+        <button className="update-idea-button" onClick={event => this.updateIdeaHandler(event)}>Update Idea</button>
+      </div>
+    )
+  }
+  displayAddNewIdea(idea) {
+    return (
+      <div className="idea-cell new-idea">
+        <label>Title: </label>
+        <input 
+          type="text"
+          className="new-title"
+          placeholder="new title"
+          value={idea.title}
+          onChange={eve => this.props.updateNewIdea(eve, 'title')}/>
+        <label>Description: </label>
+        <input 
+          type="text"
+          className="new-description"
+          value={idea.description}
+          onChange={eve => this.props.updateNewIdea(eve, 'description')}/>
+        <button className="new-idea-add-button" onClick={this.props.submitNewIdea}>Add Idea</button>
+      </div>
+    )
   }
   render () {
     let state = this.state;
     let props = this.props;
     return (
       <div className="idea-cell-container">
-        {!props.isNewIdea && !state.isUpdatingIdea &&
-          <div className="idea-cell">
-            <button className="edit-idea" onClick={this.editIdea}>...</button>
-            <label>{props.idea.title}</label>
-            <div className="idea-cell-description">
-              {props.idea.description}
-            </div>
-            <MomentComponent className="idea-cell-creation-date" dateToCompare={props.idea.createdDate}>
-            </MomentComponent>
-          </div>
-        }
-        {!props.isNewIdea && state.isUpdatingIdea &&
-          <div className="idea-cell updating-idea">
-            <input 
-              type="text"
-              className="update-title"
-              value={state.ideaUpdating.title}
-              onChange={eve => this.updateIdeaField(eve, 'title')}/>
-            <label>Description: </label>
-            <input 
-              type="text"
-              className="update-description"
-              value={state.ideaUpdating.description}
-              onChange={eve => this.updateIdeaField(eve, 'description')}/>
-            <button className="update-idea-button" onClick={event => this.updateIdeaHandler(event)}>Update Idea</button>
-          </div>
-        }
-        
-        {props.isNewIdea && 
-          <div className="idea-cell new-idea">
-            <label>Title: </label>
-            <input 
-              type="text"
-              className="new-title"
-              placeholder="new title"
-              value={props.newIdea.title}
-              onChange={eve => props.updateNewIdea(eve, 'title')}/>
-            <label>Description: </label>
-            <input 
-              type="text"
-              className="new-description"
-              value={props.newIdea.description}
-              onChange={eve => props.updateNewIdea(eve, 'description')}/>
-            <button className="new-idea-add-button" onClick={props.submitNewIdea}>Add Idea</button>
-          </div>
-        }
+        {!props.isNewIdea && !state.isUpdatingIdea && this.displayIdea(props.idea)}
+        {!props.isNewIdea && state.isUpdatingIdea && this.displayEditIdea(state.ideaUpdating)}
+        {props.isNewIdea && this.displayAddNewIdea(props.newIdea)}
       </div>
     )
   }

@@ -1,6 +1,14 @@
 import React from 'react';
 import {IdeaCell} from './IdeaCell';
 import './ideaBoard.css';
+
+const newIdea = {
+  title: '',
+  description: '',
+  createdDate: '',
+  updatedDate: ''
+};
+
 export class IdeaBoard extends React.Component {
   constructor (props) {
       super(props);
@@ -13,12 +21,7 @@ export class IdeaBoard extends React.Component {
             updatedDate: ''
           },
         ],
-        newIdea: {
-          title: '',
-          description: '',
-          createdDate: '',
-          updatedDate: ''
-        }
+        newIdea
       }
       this.updateNewIdea = this.updateNewIdea.bind(this);
       this.submitUpdateIdea = this.submitUpdateIdea.bind(this);
@@ -42,12 +45,7 @@ export class IdeaBoard extends React.Component {
     ideaToAdd.createdDate = new Date();
     this.setState(previousState => ({
       ideas: [...previousState.ideas, ideaToAdd],
-      newIdea: {
-        title: '',
-        description: '',
-        createdDate: '',
-        updatedDate: ''
-      }
+      newIdea
     }));
   };
   render () {
