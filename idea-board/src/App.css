@@ -1,0 +1,14 @@
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+html, body {
+  height: 100%;
+}
+#root {
+  font-family: Roboto, 'PingFang SC', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+  background-image: url(assets/cork2.jpg);
+  background-color: #c8945e;
+  height: 100%;
+}

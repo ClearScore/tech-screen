@@ -58,8 +58,9 @@ export class IdeaCell extends React.Component {
         <div className="idea-cell-description">
           {idea.description}
         </div>
-        Idea created or updated:
-        <MomentComponent className="idea-cell-creation-date" dateToCompare={idea.updatedDate || idea.createdDate} />
+        <p>
+          Idea created or updated: <MomentComponent className="idea-cell-creation-date" dateToCompare={idea.updatedDate || idea.createdDate} />
+        </p>
       </div>
     );
   }
@@ -91,6 +92,7 @@ export class IdeaCell extends React.Component {
       <div className="idea-cell new-idea">
         <span>Title: </span>
         <input
+          autoFocus
           type="text"
           className="new-title"
           placeholder="new title"

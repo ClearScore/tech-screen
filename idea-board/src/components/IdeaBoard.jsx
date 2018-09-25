@@ -40,7 +40,7 @@ export class IdeaBoard extends React.Component {
 
   submitUpdateIdea(ideaToUpdate, ideaToReplace) {
     ideaToUpdate.updatedDate = new Date();
-    const { allIdeas } = this.state;
+    const { ideas: allIdeas } = this.state;
     const allOtherIdeas = allIdeas.filter(idea => idea !== ideaToReplace);
     this.setState({
       ideas: [...allOtherIdeas, ideaToUpdate],
@@ -49,6 +49,7 @@ export class IdeaBoard extends React.Component {
 
   submitNewIdea() {
     const { newIdea: ideaToAdd, ideas } = this.state;
+    if (ideaToAdd.title.length <= 0) return;
     ideaToAdd.createdDate = new Date();
     ideaToAdd.id = ideas.lenght + 1;
     this.setState(previousState => ({
