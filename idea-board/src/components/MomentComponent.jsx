@@ -1,16 +1,15 @@
-import React from "react";
-import Moment from "react-moment";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Moment from 'react-moment';
 
-export default class momentComponent extends React.Component {
-  render() {
-    const date = new Date();
-
-    return (
-      <div>
-        <Moment fromNow>
-          {this.props.dateToCompare}
-        </Moment>
-      </div>
-    );
-  }
-}
+const momentComponent = ({ dateToCompare }) => (
+  <div>
+    <Moment fromNow>
+      {dateToCompare}
+    </Moment>
+  </div>
+);
+momentComponent.propTypes = {
+  dateToCompare: PropTypes.instanceOf(Date).isRequired,
+};
+export default momentComponent;

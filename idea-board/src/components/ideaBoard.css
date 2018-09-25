@@ -3,11 +3,9 @@
 }
 .idea-board-ideas-container {
   display: grid;
-  max-width: 1180px;
   grid-template-columns: repeat(auto-fill, minmax(130px,164px));
   grid-auto-rows: 200px;
   grid-auto-flow: dense;
-  margin: 0 auto;
   padding: 30px 0;
 }
 .idea-cell-container {

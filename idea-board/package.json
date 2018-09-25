@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "enzyme": "3.3.0",
+    "enzyme-adapter-react-16": "1.1.1",
     "moment": "^2.22.2",
+    "prop-types": "^15.6.2",
     "react": "16.4.0",
     "react-dom": "16.4.0",
     "react-moment": "^0.7.9",
@@ -12,11 +15,15 @@
   "scripts": {
     "start": "react-scripts start",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "eslint": "eslint --ext .jsx --ext .js src/"
   },
   "devDependencies": {
-    "enzyme": "3.3.0",
-    "enzyme-adapter-react-16": "1.1.1",
+    "eslint": "^5.6.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.1",
     "react-test-renderer": "16.4.0"
   }
 }
