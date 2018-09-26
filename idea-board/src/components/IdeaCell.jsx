@@ -5,8 +5,8 @@ import MomentComponent from './MomentComponent';
 const ideaUpdatingEmpty = {
   title: '',
   description: '',
-  createdDate: '',
-  updatedDate: '',
+  createdDate: new Date(),
+  updatedDate: new Date(),
 };
 
 export class IdeaCell extends React.Component {
@@ -52,15 +52,16 @@ export class IdeaCell extends React.Component {
     return (
       <div className="idea-cell">
         <div className="edit-idea-container">
-          <button className="edit-idea" onClick={this.editIdea} type="button">Edit</button>
           <span>{idea.title}</span>
+          <button className="edit-idea" onClick={this.editIdea} type="button">Edit</button>
         </div>
         <div className="idea-cell-description">
           {idea.description}
         </div>
-        <p>
-          Idea created or updated: <MomentComponent className="idea-cell-creation-date" dateToCompare={idea.updatedDate || idea.createdDate} />
-        </p>
+        <div>
+          Idea created or updated: 
+          <MomentComponent className="idea-cell-creation-date" dateToCompare={idea.updatedDate || idea.createdDate} />
+        </div>
       </div>
     );
   }
@@ -127,6 +128,7 @@ const ideaShape = {
   title: PropTypes.string,
   description: PropTypes.string,
   createdDate: PropTypes.instanceOf(Date),
+  updatedDate: PropTypes.instanceOf(Date),
 };
 IdeaCell.propTypes = {
   idea: PropTypes.shape(ideaShape),

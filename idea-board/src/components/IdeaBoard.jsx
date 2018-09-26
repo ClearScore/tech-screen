@@ -5,8 +5,8 @@ import './ideaBoard.css';
 const newIdea = {
   title: '',
   description: '',
-  createdDate: '',
-  updatedDate: '',
+  createdDate: new Date(),
+  updatedDate: new Date(),
 };
 
 export class IdeaBoard extends React.Component {
@@ -19,7 +19,7 @@ export class IdeaBoard extends React.Component {
           title: 'Default Idea',
           description: 'This is the default description of an idea',
           createdDate: new Date(),
-          updatedDate: '',
+          updatedDate: null,
         },
       ],
       newIdea,
