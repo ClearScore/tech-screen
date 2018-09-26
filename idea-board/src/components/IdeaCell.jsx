@@ -50,6 +50,7 @@ export class IdeaCell extends React.Component {
 
   // Content renderers:
   displayIdea(idea) {
+    const { deleteIdea } = this.props;
     return (
       <div className="idea-cell">
         <div className="edit-idea-container">
@@ -60,8 +61,13 @@ export class IdeaCell extends React.Component {
           {idea.description}
         </div>
         <div>
-          Idea created or updated:
-          <MomentComponent className="idea-cell-creation-date" dateToCompare={idea.updatedDate || idea.createdDate} />
+          <div>
+            Idea created or updated:
+            <MomentComponent className="idea-cell-creation-date" dateToCompare={idea.updatedDate || idea.createdDate} />
+          </div>
+          <div>
+            <button className="delete-idea" onClick={() => deleteIdea(idea)} type="button">Delete</button>
+          </div>
         </div>
       </div>
     );
@@ -77,8 +83,7 @@ export class IdeaCell extends React.Component {
           onChange={eve => this.updateIdeaField(eve, 'title')}
         />
         <span>Description: </span>
-        <input
-          type="text"
+        <textarea
           className="update-description"
           value={idea.description}
           onChange={eve => this.updateIdeaField(eve, 'description')}
@@ -105,7 +110,6 @@ export class IdeaCell extends React.Component {
         />
         <span>Description: </span>
         <textarea
-          type="text"
           className="new-description"
           value={newIdea.description}
           onChange={eve => updateNewIdea(eve, 'description')}
@@ -143,6 +147,7 @@ IdeaCell.propTypes = {
   updateNewIdea: PropTypes.func,
   submitNewIdea: PropTypes.func,
   submitUpdateIdea: PropTypes.func,
+  deleteIdea: PropTypes.func,
   maxDescriptionLength: PropTypes.number,
 };
 IdeaCell.defaultProps = {
@@ -152,5 +157,6 @@ IdeaCell.defaultProps = {
   updateNewIdea: () => {},
   submitNewIdea: () => {},
   submitUpdateIdea: () => {},
+  deleteIdea: () => {},
 };
 export default IdeaCell;

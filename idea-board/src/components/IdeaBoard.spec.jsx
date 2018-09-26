@@ -2,12 +2,6 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import IdeaBoard from './IdeaBoard';
 
-const ideaUpdatingEmpty = {
-  title: 'Test title',
-  description: 'Test description',
-  createdDate: new Date(),
-  updatedDate: new Date(),
-};
 it('renders without crashing', () => {
   shallow(<IdeaBoard />);
 });

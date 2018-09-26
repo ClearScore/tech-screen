@@ -30,6 +30,7 @@ export class IdeaBoard extends React.Component {
     this.updateNewIdea = this.updateNewIdea.bind(this);
     this.submitUpdateIdea = this.submitUpdateIdea.bind(this);
     this.submitNewIdea = this.submitNewIdea.bind(this);
+    this.deleteIdea = this.deleteIdea.bind(this);
   }
 
   updateNewIdea(event, field) {
@@ -59,6 +60,15 @@ export class IdeaBoard extends React.Component {
       ideas: [...previousState.ideas, ideaToAdd],
       newIdea,
     }));
+    this.sortIdeasByField();
+  }
+
+  deleteIdea(ideaToDelete) {
+    const { ideas } = this.state;
+    const allOtherIdeas = ideas.filter(idea => idea !== ideaToDelete);
+    this.setState({
+      ideas: allOtherIdeas,
+    });
     this.sortIdeasByField();
   }
 
@@ -94,6 +104,7 @@ export class IdeaBoard extends React.Component {
                 key={idea.id}
                 idea={idea}
                 submitUpdateIdea={this.submitUpdateIdea}
+                deleteIdea={this.deleteIdea}
               />
             ))
           }
