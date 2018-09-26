@@ -8,6 +8,7 @@ const newIdea = {
   createdDate: new Date(),
   updatedDate: new Date(),
 };
+const MAX_DESC_LENGTH = 140;
 
 export class IdeaBoard extends React.Component {
   constructor(props) {
@@ -32,6 +33,7 @@ export class IdeaBoard extends React.Component {
   }
 
   updateNewIdea(event, field) {
+    if (event.target.value.length >= MAX_DESC_LENGTH) return;
     event.persist();
     this.setState(previousState => ({
       newIdea: { ...previousState.newIdea, [field]: event.target.value },
@@ -45,18 +47,19 @@ export class IdeaBoard extends React.Component {
     this.setState({
       ideas: [...allOtherIdeas, ideaToUpdate],
     });
+    this.sortIdeasByField();
   }
 
   submitNewIdea() {
     const { newIdea: ideaToAdd, ideas } = this.state;
     if (ideaToAdd.title.length <= 0) return;
     ideaToAdd.createdDate = new Date();
-    ideaToAdd.id = ideas.lenght + 1;
+    ideaToAdd.id = ideas.length + 1;
     this.setState(previousState => ({
       ideas: [...previousState.ideas, ideaToAdd],
       newIdea,
     }));
-    this.sortIdeasByField(this.sortBySelector.current.value);
+    this.sortIdeasByField();
   }
 
   sortIdeasByField() {
@@ -101,6 +104,7 @@ export class IdeaBoard extends React.Component {
             isNewIdea
             newIdea={state.newIdea}
             submitNewIdea={this.submitNewIdea}
+            maxDescriptionLength={MAX_DESC_LENGTH}
           />
         </div>
       </div>

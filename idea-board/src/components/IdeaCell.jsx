@@ -16,6 +16,7 @@ export class IdeaCell extends React.Component {
       ideaUpdating: ideaUpdatingEmpty,
       isUpdatingIdea: false,
     };
+    this.newDescriptionSelector = React.createRef();
     this.displayIdea = this.displayIdea.bind(this);
     this.editIdea = this.editIdea.bind(this);
     this.updateIdeaField = this.updateIdeaField.bind(this);
@@ -59,7 +60,7 @@ export class IdeaCell extends React.Component {
           {idea.description}
         </div>
         <div>
-          Idea created or updated: 
+          Idea created or updated:
           <MomentComponent className="idea-cell-creation-date" dateToCompare={idea.updatedDate || idea.createdDate} />
         </div>
       </div>
@@ -88,7 +89,9 @@ export class IdeaCell extends React.Component {
   }
 
   displayAddNewIdea() {
-    const { updateNewIdea, submitNewIdea, newIdea } = this.props;
+    const {
+      updateNewIdea, submitNewIdea, newIdea, maxDescriptionLength,
+    } = this.props;
     return (
       <div className="idea-cell new-idea">
         <span>Title: </span>
@@ -101,12 +104,16 @@ export class IdeaCell extends React.Component {
           onChange={eve => updateNewIdea(eve, 'title')}
         />
         <span>Description: </span>
-        <input
+        <textarea
           type="text"
           className="new-description"
           value={newIdea.description}
           onChange={eve => updateNewIdea(eve, 'description')}
+          ref={this.newDescriptionSelector}
         />
+        <span className="description-counter">
+          {this.newDescriptionSelector.current && (`${maxDescriptionLength - this.newDescriptionSelector.current.value.length} chars left`)}
+        </span>
         <button className="new-idea-add-button" onClick={submitNewIdea} type="button">Add Idea</button>
       </div>
     );
@@ -136,10 +143,12 @@ IdeaCell.propTypes = {
   updateNewIdea: PropTypes.func,
   submitNewIdea: PropTypes.func,
   submitUpdateIdea: PropTypes.func,
+  maxDescriptionLength: PropTypes.number,
 };
 IdeaCell.defaultProps = {
   idea: ideaUpdatingEmpty,
   newIdea: ideaUpdatingEmpty,
+  maxDescriptionLength: 140,
   updateNewIdea: () => {},
   submitNewIdea: () => {},
   submitUpdateIdea: () => {},
