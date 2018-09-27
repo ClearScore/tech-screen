@@ -14,15 +14,7 @@ export class IdeaBoard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      ideas: [
-        {
-          id: 1,
-          title: 'Default Idea',
-          description: 'This is the default description of an idea',
-          createdDate: new Date(),
-          updatedDate: null,
-        },
-      ],
+      ideas: [],
       newIdea,
     };
     this.sortBySelector = React.createRef();
@@ -45,8 +37,12 @@ export class IdeaBoard extends React.Component {
     ideaToUpdate.updatedDate = new Date();
     const { ideas: allIdeas } = this.state;
     const allOtherIdeas = allIdeas.filter(idea => idea !== ideaToReplace);
+    // Sort by Id
+    const stateIdeas = [...allOtherIdeas, ideaToUpdate].sort((idea, nextIdea) => (
+      idea.id < nextIdea.id ? -1 : idea.id > nextIdea.id ? 1 : 0
+    ));
     this.setState({
-      ideas: [...allOtherIdeas, ideaToUpdate],
+      ideas: stateIdeas,
     });
     this.sortIdeasByField();
   }

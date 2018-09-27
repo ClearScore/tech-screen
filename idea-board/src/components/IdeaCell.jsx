@@ -65,8 +65,8 @@ export class IdeaCell extends React.Component {
             Idea created or updated:
             <MomentComponent className="idea-cell-creation-date" dateToCompare={idea.updatedDate || idea.createdDate} />
           </div>
-          <div>
-            <button className="delete-idea" onClick={() => deleteIdea(idea)} type="button">Delete</button>
+          <div className="delete-idea">
+            <button onClick={() => deleteIdea(idea)} type="button">Delete</button>
           </div>
         </div>
       </div>

@@ -16,7 +16,7 @@ it('renders the right dom elements', () => {
   expect(selectElement.children.length).toBe(3);
 
   // Number of ideas rendered
-  expect(wrapper.find('.idea-board-ideas-container').children().length).toBe(2);
+  expect(wrapper.find('.idea-board-ideas-container').children().length).toBe(1);
 });
 
 it('adds a new idea', () => {
@@ -30,5 +30,5 @@ it('adds a new idea', () => {
   const editIdeaButton = wrapper.find('.idea-cell .new-idea-add-button');
   editIdeaButton.simulate('click');
   // Number of ideas rendered
-  expect(wrapper.find('.idea-board-ideas-container').children().length).toBe(3);
+  expect(wrapper.find('.idea-board-ideas-container').children().length).toBe(2);
 });
