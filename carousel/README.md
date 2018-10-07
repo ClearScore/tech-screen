@@ -47,7 +47,6 @@ The data can be requested from [https://s3.amazonaws.com/cdn.clearscore.com/nati
  * Yarn is used as the package manager
 
 ## Getting Started
-
- * Run: `yarn start:webpack`
- * Run: `yarn start:dev` _(in a new terminal)_
+ * Run: `yarn start:dev` 
  * Goto: `http://localhost:3000/`
+
