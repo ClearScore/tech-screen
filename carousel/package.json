@@ -17,6 +17,7 @@
     "start:dev": "concurrently \"npm run start:devserver\" \"npm run start:webpack\"",
     "------ TESTING ------": "",
     "test": "jest --config jest.json .*.spec.jsx?",
+    "test:watch": "jest --config jest.json .*.spec.jsx? --watch",
     "------ UTILS ------": "",
     "nuke": "rimraf node_modules && yarn && yarn test"
   },
@@ -49,6 +50,7 @@
     "node-hook": "1.0.0",
     "node-sass": "4.8.2",
     "nodemon": "1.17.2",
+    "nuka-carousel": "^4.4.1",
     "postcss-loader": "2.1.1",
     "progress-bar-webpack-plugin": "1.11.0",
     "promise-polyfill": "7.1.0",
