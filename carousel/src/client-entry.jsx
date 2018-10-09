@@ -10,7 +10,7 @@ import './styles/app.scss';
 const log = debug('cs:client-entry');
 
 try {
-  ReactDOM.render(<Root />, document.getElementById('html'));
+  ReactDOM.hydrate(<Root />, document.getElementById('html'));
 } catch (err) {
   log('Render error', err);
 }

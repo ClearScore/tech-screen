@@ -27,6 +27,9 @@ const setConfig = () => {
       label: 'Credit Report',
       host: 'https://s3.amazonaws.com/cdn.clearscore.com/native/interview_test', // creditReportInfo.json
       homepage: 'https://www.clearscore.com',
+      endpoints: {
+        'creditReport': 'creditReportInfo.json'
+      },
     },
     NODE_ENV: process.env.NODE_ENV,
     DEBUG: process.env.DEBUG,

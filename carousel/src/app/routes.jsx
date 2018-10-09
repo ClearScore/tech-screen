@@ -6,7 +6,7 @@ import DocumentMeta from 'react-document-meta';
 import MainLayout from './Layouts/MainLayout';
 import Dashboard from './components/Dashboard/Dashboard';
 import NotFound from './components/NotFound/NotFound';
-
+import { getCreditReport } from "./utils/dashboard";
 export const getRoutesConfig = () => [
   {
     name: 'dashboard',
@@ -23,6 +23,7 @@ export const getRoutesConfig = () => [
       title: 'ClearScore Assessment - Dashboard',
     },
     label: 'Dashboard',
+    getData: getCreditReport,
     component: Dashboard,
   },
 ];

@@ -3,6 +3,7 @@ node_modules/
 dist/
 compiled/
 tests/coverage/
+**/tests/coverage
 tests_output/
 tests_screenshots/
 .DS_Store

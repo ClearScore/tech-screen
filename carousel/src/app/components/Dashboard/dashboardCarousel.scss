@@ -1,0 +1,41 @@
+.carousel--container {
+  width: 100%;
+  margin: 0 auto;
+
+  @media only screen and (min-width: 768px) {
+    max-width: calc(100% / 3);
+  }
+
+  //TODO - these are hacks for quick test styling
+  .slider-control-centerright,
+  .slider-control-centerleft {
+    display: none;
+  }
+
+  .slider-control-bottomcenter button {
+    color: white !important; //eww important
+  }
+}
+
+.carousel--slide {
+  border-radius: 50%;
+  height: auto;
+  padding-top: 100%;
+  border: 1px solid white;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.carousel--slide-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
