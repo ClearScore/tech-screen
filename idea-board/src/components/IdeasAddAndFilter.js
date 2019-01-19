@@ -1,22 +1,19 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+import * as actions from 'actions'
 
-class IdeasAddFilter extends Component {
+class IdeasAddAndFilter extends Component {
 
-    // constructor(props) {
-    //     super(props)
-
-    //     this.handleClick = handleClick.bind(this)
-    // }
-
-    // handleClick(e) {
-    //     e.preventDefault()
-    //     //dispatch 'ADD' action type
-    // }
+    handleClick = () => {    
+        //dispatch 'ADD' action type
+        this.props.addIdea()
+    }
 
     render() {
         return (
         <div>
-            <button>ADD IDEA</button>
+            <button className='add-button' onClick={this.handleClick}>ADD IDEA</button>
             <button>SORT BY TITLE</button>
             <button>SORT BY DATE</button>
         </div>
@@ -24,4 +21,8 @@ class IdeasAddFilter extends Component {
     }
 }
 
-export default IdeasAddFilter;
+// IdeasAddAndFilter.propTypes = {
+//     actions: PropTypes.object.isRequired
+// }
+
+export default connect(null, actions)(IdeasAddAndFilter);

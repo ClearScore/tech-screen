@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "lodash": "^4.17.11",
+    "prop-types": "^15.6.2",
     "react": "16.4.0",
     "react-dom": "16.4.0",
     "react-redux": "^6.0.0",
@@ -16,9 +17,9 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "enzyme": "3.3.0",
-    "enzyme-adapter-react-16": "1.1.1",
-    "react-test-renderer": "16.4.0"
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.7.1",
+    "react-test-renderer": "^16.7.0"
   },
   "browserslist": [
     ">0.2%",
