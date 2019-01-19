@@ -12,7 +12,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test --env=jsdom --verbose",
     "eject": "react-scripts eject"
   },
   "devDependencies": {

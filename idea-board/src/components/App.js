@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
+import IdeasAddAndFilter from 'components/IdeasAddAndFilter';
+import IdeasList from 'components/IdeasList';
 
 
-export default class App extends Component {
+class App extends Component {
+
     render() {
         return (
-            <div>
-                Hello world
+            <div className='main-wrapper'>
+                <IdeasAddAndFilter />
+                <IdeasList />
             </div>
         );
     }
 }
+
+export default App;
+
+// <IdeasList ideas={this.state.ideas} filter={this.state.activeFilter}/>
