@@ -1,19 +1,20 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import IdeaCard from 'components/IdeaCard';
 
 class IdeasList extends Component {
+
+    handleDelete = (id) =>{
+        console.log(id);    
+    }
 
     renderIdeas = (ideas) => 
         (
             ideas.map(idea => 
-                <li key={idea.id}>
-                    {idea.title} 
-                    <br/>
-                    {idea.description}
-                    <br/>
-                    {idea.dateCreated.getFullYear()}
-                </li>
+                <section key={idea.id}>
+                    <IdeaCard idea={idea} handleDelete={this.handleDelete}/>  
+                </section>    
             )
         )
     

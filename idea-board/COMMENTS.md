@@ -16,8 +16,9 @@ Stage 1 - Basic setup
 1.7 Pass-OK tests for action , reducer, onClick event
 
 Stage 2 - Add Delete, Edit features
-2.0
-2.1
+2.0 Add ShowOrEdit component with controlled input
+2.1 Connect/update redux store onBlur 
+2.2 Wire up EDIT_IDEA action with reducer
 
 Stage 3 - Redux store persistance using localStorage
 3.0
