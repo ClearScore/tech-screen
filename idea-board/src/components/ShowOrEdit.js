@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import {connect} from 'react-redux'
+import * as actions from 'actions'
 
 
 class ShowOrEdit extends Component {
@@ -8,10 +10,13 @@ class ShowOrEdit extends Component {
         editing: false
     }
 
+
     handleEditing = () => this.setState({ 
         editing: true, 
         value: this.state.value 
     });
+
+
     handleEditingChange = (event) => this.setState({ 
         value: event.target.value 
     });
@@ -20,6 +25,7 @@ class ShowOrEdit extends Component {
         this.setState({ 
             editing: false 
         })
+        this.props.sendValueUp(this.state.value, this.props.name)
         //dispatch action to send edited payload , reducer adds timestamp
     }
 
@@ -31,6 +37,7 @@ class ShowOrEdit extends Component {
                         value={this.state.value}
                         onBlur={this.handleEditingDone}
                         onChange={this.handleEditingChange}
+                        autoFocus="true"
                     />
                     :
                     <div onDoubleClick={this.handleEditing}>
@@ -44,4 +51,6 @@ class ShowOrEdit extends Component {
     }
 }
 
-export default ShowOrEdit;
+
+
+export default connect(null, actions)(ShowOrEdit);

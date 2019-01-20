@@ -9,5 +9,21 @@ export const addIdea = () => (
         }
     }
 )
-export const deleteIdea = id => ({ type: types.DELETE_IDEA, payload: id })
+export const deleteIdea = id => (
+    { 
+        type: types.DELETE_IDEA, 
+        payload: id 
+    }
+)
+
+export const editIdea = ({id, title, description}) => (
+    { 
+        type: types.EDIT_IDEA, 
+        payload: {
+           id,
+           title,
+           description  
+        }
+    }
+)
 

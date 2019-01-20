@@ -1,6 +1,7 @@
 import {
     ADD_IDEA,
-    DELETE_IDEA
+    DELETE_IDEA,
+    EDIT_IDEA
 } from 'actions/types'
 
 const initialState = [
@@ -24,6 +25,17 @@ export default function todos(state = initialState, action) {
                     dateCreated: new Date()
                 }
             ]
+        case EDIT_IDEA:
+            return state.map(idea=>
+                idea.id === action.payload.id ?
+                {...idea, 
+                    title: action.payload.title, 
+                    description: action.payload.description,
+                    dateCreated: new Date()
+                } 
+                :
+                idea
+            )
         case DELETE_IDEA:
             return state.filter(idea =>
                 idea.id !== action.payload.id
