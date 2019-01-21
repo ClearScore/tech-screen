@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
+import PropTypes from 'prop-types'
 import * as actions from 'actions'
 
 
@@ -51,6 +52,10 @@ class ShowOrEdit extends Component {
     }
 }
 
-
+ShowOrEdit.propTypes = {
+    label: PropTypes.string,
+    name: PropTypes.string.isRequired,
+    sendValueUp: PropTypes.func
+}
 
 export default connect(null, actions)(ShowOrEdit);

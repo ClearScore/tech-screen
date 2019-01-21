@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import * as actions from 'actions'
 import ShowOrEdit from 'components/ShowOrEdit';
 import { editIdea } from './../actions/index';
@@ -44,6 +45,10 @@ class IdeaCard extends Component{
         )
     }
  
+}
+
+IdeaCard.propTypes = {
+    idea: PropTypes.object.isRequired
 }
 
 export default connect(null, actions)(IdeaCard);

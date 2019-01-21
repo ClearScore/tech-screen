@@ -21,8 +21,8 @@ class IdeasAddAndFilter extends Component {
     }
 }
 
-// IdeasAddAndFilter.propTypes = {
-//     actions: PropTypes.object.isRequired
-// }
+IdeasAddAndFilter.propTypes = {
+    addIdea: PropTypes.func.isRequired
+}
 
 export default connect(null, actions)(IdeasAddAndFilter);

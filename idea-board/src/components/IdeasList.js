@@ -43,9 +43,9 @@ const mapStateToProps = (state, ownProps) => {
 IdeasList.propTypes = {
     ideas: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.number.isRequired,
-        title: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        dateCreated: PropTypes.object.isRequired
+        title: PropTypes.string,
+        description: PropTypes.string,
+        dateCreated: PropTypes.object
     }).isRequired).isRequired
 }
 
