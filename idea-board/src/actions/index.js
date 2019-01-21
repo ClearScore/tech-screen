@@ -1,12 +1,9 @@
 import * as types from 'actions/types'
 
-export const addIdea = () => (
+export const addIdea = (initialValues) => (
     { 
         type: types.ADD_IDEA, 
-        payload: {
-            title: 'Add title here...',
-            description: 'Write about your idea...'
-        }
+        payload: initialValues
     }
 )
 export const deleteIdea = id => (

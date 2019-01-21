@@ -7,7 +7,13 @@ class IdeasAddAndFilter extends Component {
 
     handleClick = () => {    
         //dispatch 'ADD' action type
-        this.props.addIdea()
+
+        const initialValues = { //THIS SHOULD BE PART OF INITIAL STATE LOADED AT START
+            title: 'Add title here...', 
+            description: 'Write about your idea...' 
+        }
+        this.props.addIdea(initialValues)
+
     }
 
     render() {

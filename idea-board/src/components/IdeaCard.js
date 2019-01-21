@@ -20,9 +20,7 @@ class IdeaCard extends Component{
         }
 
         const editIdea2 = { ...editedIdea, [inputName]: input}
-        
-        console.log(editIdea2);
-          
+      
         this.props.editIdea(editIdea2)  
     }
 

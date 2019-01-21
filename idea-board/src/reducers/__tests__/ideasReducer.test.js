@@ -19,7 +19,7 @@ describe('--reducers--',()=>{
             Object.assign(Date, RealDate);
         });
 
-        it('handles actions of type ADD_IDEA', () => {
+        it('handles ADD_IDEA action type', () => {
             const action = {
                 type: types.ADD_IDEA,
                 payload: {
@@ -29,11 +29,36 @@ describe('--reducers--',()=>{
             }
             const newState = ideasReducer([], action);
             expect(newState).toEqual([
-
                 {
                     id: 0,
                     title: 'Test title',
                     description: 'Text max 140 chars',
+                    dateCreated: currentDate
+                }
+            ]);
+        });
+
+        it('handles EDIT_IDEA action type ', () => {
+            const action = {
+                type: types.EDIT_IDEA,
+                payload: {
+                    id:0,
+                    title: 'Edited title',
+                    description: 'Edited text max 140 chars'
+                }
+            }
+            const newState = ideasReducer([{
+                id: 0,
+                title: 'Test title',
+                description: 'Text max 140 chars',
+                dateCreated: currentDate
+            }], action);
+
+            expect(newState).toEqual([
+                {
+                    id: 0,
+                    title: 'Edited title',
+                    description: 'Edited text max 140 chars',
                     dateCreated: currentDate
                 }
             ]);
