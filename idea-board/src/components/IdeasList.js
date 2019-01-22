@@ -2,11 +2,12 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import IdeaCard from 'components/IdeaCard';
+import { deleteIdea } from 'actions'
 
 class IdeasList extends Component {
 
     handleDelete = (id) =>{
-        console.log(id);    
+        this.props.deleteIdea(id)
     }
 
     renderIdeas = (ideas) => 
@@ -46,7 +47,8 @@ IdeasList.propTypes = {
         title: PropTypes.string,
         description: PropTypes.string,
         dateCreated: PropTypes.object
-    }).isRequired).isRequired
+    }).isRequired).isRequired,
+    deleteIdea: PropTypes.func.isRequired
 }
 
-export default connect(mapStateToProps)(IdeasList);
+export default connect(mapStateToProps, {deleteIdea})(IdeasList);

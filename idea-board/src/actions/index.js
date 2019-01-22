@@ -6,12 +6,15 @@ export const addIdea = (initialValues) => (
         payload: initialValues
     }
 )
-export const deleteIdea = id => (
-    { 
-        type: types.DELETE_IDEA, 
-        payload: id 
+export const deleteIdea = id => {
+    console.log('ACTION ==' + id)
+    return {
+        type: types.DELETE_IDEA,
+            payload: id
     }
-)
+}
+   
+
 
 export const editIdea = ({id, title, description}) => (
     { 

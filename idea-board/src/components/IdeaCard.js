@@ -35,10 +35,10 @@ class IdeaCard extends Component{
                 <ShowOrEdit name='description' label={idea.description || ''} sendValueUp={this.getInputValue}/>
                 <br />
                 {idea.dateCreated.getFullYear()}
-                <a href='#' className='delete-btn' 
+                <button className='delete-btn' 
                     onClick={this.props.handleDelete.bind(null,idea.id)}>
                     [X]
-                </a> 
+                </button> 
             </li>
         )
     }

@@ -13,7 +13,7 @@ const initialState = [
     }
 ]
 
-export default function todos(state = initialState, action) {
+export default function (state = initialState, action) {
     switch (action.type) {
         case ADD_IDEA:
             return [
@@ -36,10 +36,10 @@ export default function todos(state = initialState, action) {
                 :
                 idea
             )
-        case DELETE_IDEA:
-            return state.filter(idea =>
-                idea.id !== action.payload.id
-            )
+        case DELETE_IDEA:       
+            return state.filter(idea => {
+                return idea.id !== action.payload
+            });     
         default:
             return state
     }
