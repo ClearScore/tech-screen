@@ -34,7 +34,7 @@ class IdeaCard extends Component{
                 <br />
                 <ShowOrEdit name='description' label={idea.description || ''} sendValueUp={this.getInputValue}/>
                 <br />
-                {idea.dateCreated.getFullYear()}
+               
                 <button className='delete-btn' 
                     onClick={this.props.handleDelete.bind(null,idea.id)}>
                     [X]
@@ -50,6 +50,8 @@ IdeaCard.propTypes = {
 }
 
 export default connect(null, actions)(IdeaCard);
+
+// {idea.dateCreated.getFullYear()}
 
 
 
