@@ -9,7 +9,8 @@
     "react-dom": "16.4.0",
     "react-redux": "^6.0.0",
     "react-scripts": "1.1.4",
-    "redux": "^4.0.1"
+    "redux": "^4.0.1",
+    "reselect": "^4.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

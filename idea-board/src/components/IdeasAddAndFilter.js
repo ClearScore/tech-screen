@@ -2,6 +2,13 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import * as actions from 'actions'
+import * as types from 'actions/types'
+import FilterButton from 'components/FilterButton'
+
+const FILTER_TITLES = {
+    [types.BY_DATE]: 'BY DATE',
+    [types.BY_TITLE]: 'BY TITLE'
+}
 
 class IdeasAddAndFilter extends Component {
 
@@ -18,8 +25,14 @@ class IdeasAddAndFilter extends Component {
         return (
         <div>
             <button className='add-button' onClick={this.handleClick}>ADD IDEA</button>
-            <button>SORT BY TITLE</button>
-            <button>SORT BY DATE</button>
+            {Object.keys(FILTER_TITLES).map(filter => (
+                    <div key={filter}>
+                        <FilterButton filter={filter}>
+                            {FILTER_TITLES[filter]}
+                        </FilterButton>
+                    </div>
+                )
+            )}
         </div>
         )
     }
