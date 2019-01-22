@@ -3,6 +3,14 @@ Update enzyme and adapter to newest versions
 
 Please enjoy :
 
+DELIVERY DATE WAS TODAY 12 PM , I AM SORRY NEEDED MORE TIME.
+NO STYLING,
+NO FULL TEST COVERAGE,
+FILTER FEATURE COMPLETED IN 70%
+
+PLEASE CONSIDER GIVING ME 2 MORE HOURS....
+
+
 Stage 0 - Design on whiteboard , needed UI elements / behaviour, development strategy 
 
 Stage 1 - Basic setup 
