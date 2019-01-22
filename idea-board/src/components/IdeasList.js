@@ -46,7 +46,7 @@ IdeasList.propTypes = {
         id: PropTypes.number.isRequired,
         title: PropTypes.string,
         description: PropTypes.string,
-        dateCreated: PropTypes.object
+        dateCreated: PropTypes.number
     }).isRequired).isRequired,
     deleteIdea: PropTypes.func.isRequired
 }

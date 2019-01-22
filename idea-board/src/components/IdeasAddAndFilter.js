@@ -5,15 +5,13 @@ import * as actions from 'actions'
 
 class IdeasAddAndFilter extends Component {
 
-    handleClick = () => {    
-        //dispatch 'ADD' action type
-
-        const initialValues = { //THIS SHOULD BE PART OF INITIAL STATE LOADED AT START
+    handleClick = () => {  
+        //THIS STARTING INPUT DEFAULT TEXT FOR EACH IDEA CARD
+        const initialValues = { 
             title: 'Add title here...', 
             description: 'Write about your idea...' 
         }
         this.props.addIdea(initialValues)
-
     }
 
     render() {

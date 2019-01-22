@@ -4,16 +4,18 @@ import {
     EDIT_IDEA
 } from 'actions/types'
 
+//THIS IS SO THAT ON APP LOAD, USER CAN SEE 1 DEFAULT CARD ALREADY VISIBLE FOR HIM
 const initialState = [
     {
         id: 0,
         title: 'Add title here...',
         description: 'Write about your idea...',
-        dateCreated: new Date()  
+        dateCreated: new Date().getDate()
     }
 ]
 
-export default function (state = initialState, action) {
+//export default function (state = initialState, action) {
+export default function ideasReducer(state = initialState, action) {
     switch (action.type) {
         case ADD_IDEA:
             return [
@@ -22,7 +24,7 @@ export default function (state = initialState, action) {
                     id: state.reduce((maxId, idea) => Math.max(idea.id, maxId), -1) + 1,
                     title: action.payload.title,
                     description: action.payload.description,
-                    dateCreated: new Date()
+                    dateCreated: new Date().getDate()
                 }
             ]
         case EDIT_IDEA:
@@ -31,7 +33,7 @@ export default function (state = initialState, action) {
                 {...idea, 
                     title: action.payload.title, 
                     description: action.payload.description,
-                    dateCreated: new Date()
+                    dateCreated: new Date().getDate()
                 } 
                 :
                 idea
