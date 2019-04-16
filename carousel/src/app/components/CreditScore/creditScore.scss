@@ -14,6 +14,25 @@
     font-size: 18px;
   }
 
+  &__progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    svg {
+      transform: rotateZ(-90deg);
+      width: 100%;
+      height: 100%;
+      stroke: $score;
+      circle {
+        animation: progressBar 3s;
+        animation-timing-function: cubic-bezier(1,-0.24, 0.83, 1.28);
+      }
+    }
+  }
+
   &__score {
     font-size: 140px;
     line-height: 1;
@@ -34,5 +53,11 @@
       margin-top: 15px;
     }
     color: $score;
+  }
+
+  @keyframes progressBar {
+    from {
+      stroke-dashoffset: 200;
+    }
   }
 }
