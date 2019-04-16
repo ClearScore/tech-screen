@@ -1,5 +1,9 @@
-body {
-  background: no-repeat top;
-  background-size: cover;
-  background-image: url('/background--dashboard.png');
+body, .carousel__item-container:before {
+  background: url('/background--dashboard.png') 0 / cover fixed;
+}
+
+.dashboard {
+  &__carousel-container {
+    margin: 0 auto;
+  }
 }

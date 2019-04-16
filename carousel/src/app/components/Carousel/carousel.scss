@@ -1,0 +1,156 @@
+@import '../../../styles/utils/colours';
+@import '../../../styles/utils/breakpoints';
+
+$carousel-size-desktop: 600px;
+$carousel-size-mobile: 300px;
+
+.carousel {
+  margin: 0 auto;
+  width: $carousel-size-desktop;
+  height: $carousel-size-desktop;
+  // Cheat so we don't see a slide-in glitch when the carousel first renders
+  animation: fadeIn 3s;
+
+  @include breakpoint(small) {
+    width: $carousel-size-mobile;
+    height: $carousel-size-mobile;
+  }
+
+  &__slide-container {
+    position: absolute;
+    display: inline-block;
+    border: 1px solid $secondary;
+    width: $carousel-size-desktop;
+    height: $carousel-size-desktop;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    transform: translateX(-1000px) scale(0.5);
+    opacity: 0;
+    animation: slideOut 2s;
+
+    @include breakpoint(small) {
+      width: $carousel-size-mobile;
+      height: $carousel-size-mobile;
+      animation: slideOutMobile 2s;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: -30px;
+      filter: blur(18px);
+      z-index: -1;
+    }
+
+    &.visible {
+      transform: translateX(0) scale(1);
+      opacity: 1;
+      display: inline-block;
+      animation: slideIn 2s;
+      @include breakpoint(small) {
+        animation: slideInMobile 2s;
+      }
+    }
+  }
+
+  &__slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: $secondary;
+    background-color: rgba(0,0,0,0.07);
+    @include breakpoint(small) {
+      background-color: rgba(0,0,0,0.15);
+    }
+  }
+
+  &__indicators {
+    position: absolute;
+    bottom: 40px;
+    margin: 0;
+    width: 100%;
+    padding: 0;
+    text-align: center;
+    list-style: none;
+    li {
+      display: inline-block;
+      margin-right: 5px;
+      border: 1px solid $secondary;
+      border-radius: 50%;
+      width: 10px;
+      height: 10px;
+
+      &.active {
+        background-color: $secondary;
+      }
+    }
+  }
+
+}
+
+
+@keyframes slideIn {
+	from {
+    transform: translateX(500px) scale(0.5);
+    opacity: 0;
+  }
+	to {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-500px) scale(0.5);
+    opacity: 0;
+  }
+}
+
+@keyframes slideInMobile {
+	from {
+    transform: translateX(300px) scale(0.5);
+    opacity: 0;
+  }
+	to {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutMobile {
+  from {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-300px) scale(0.5);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

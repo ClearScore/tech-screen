@@ -1,0 +1,36 @@
+@import '../../../styles/utils/breakpoints';
+@import '../../../styles/utils/colours';
+@import '../../../styles/utils/fonts';
+
+.long-term-debt {
+  text-align: center;
+  font-family: AktivGrotesk;
+  font-weight: $font-weight-normal;
+  font-size: 32px;
+  line-height: 1.5;
+  color: $secondary;
+
+  @include breakpoint(small) {
+    font-size: 18px;
+  }
+
+  &__total {
+    font-size: 70px;
+    font-weight: $font-weight-normal;
+    color: $debt;
+    @include breakpoint(small) {
+      font-size: 40px;
+    }
+  }
+
+  &__max {
+    font-weight: $font-weight-bold;
+  }
+
+  &__changes {
+    margin-top: 50px;
+    @include breakpoint(small) {
+      margin-top: 15px;
+    }
+  }
+}

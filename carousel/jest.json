@@ -15,6 +15,7 @@
   },
   "modulePathIgnorePatterns": ["<rootDir>/compiled/"],
   "testRegex": "(/__tests__/.*(^scenarios)|(\\.|/)(func|spec))\\.jsx?$",
+  "testURL": "http://localhost/",
   "setupFiles": [
     "<rootDir>/tests/config/jest/reactShim.js",
     "<rootDir>/tests/config/jest/enzymeSetup.js"

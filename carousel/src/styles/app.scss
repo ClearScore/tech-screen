@@ -1,1 +1,11 @@
 @import "base/fonts";
+
+body {
+  overflow-x: hidden;
+  font-size: 24px;
+}
+
+body * {
+  box-sizing: border-box;
+  font-family: AktivGrotesk;
+}
