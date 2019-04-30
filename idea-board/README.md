@@ -18,3 +18,7 @@ When working through the task you should treat it as if you're writing real worl
 ## Getting started
 `yarn start` will run a development server on `http://localhost:3000`.  
 `yarn test` will run the suite of tests created.
+
+## Don't forget
+
+[what we're looking for](https://github.com/ClearScore/tech-screen#what-were-looking-for)

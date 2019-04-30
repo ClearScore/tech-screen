@@ -51,3 +51,9 @@ The data can be requested from [https://s3.amazonaws.com/cdn.clearscore.com/nati
  * Run: `yarn start:webpack`
  * Run: `yarn start:dev` _(in a new terminal)_
  * Goto: `http://localhost:3000/`
+
+
+
+## Don't forget
+
+[what we're looking for](https://github.com/ClearScore/tech-screen#what-were-looking-for)
