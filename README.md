@@ -12,7 +12,7 @@ At ClearScore we are not limited to the technology stack we can use. Our systems
 
 We are currently working with...
  * ES6 and ES7 throughout the codebase
- * React with Redux (Some legacy apps used Angular, but this is being phased out)
+ * React with Redux
  * Isomorphic / Universal SPA
  * PostCSS + CSS-modules for styling (legacy apps use SASS and BEM)
  * MEN (Mongo, Express, Node) stack websites
@@ -22,10 +22,12 @@ We are currently working with...
 
 ## What we're looking for
 
- * A stylish solution with unit test coverage
+ * A stylish solution
  * Clean, concise code
- * A detailed README
- * A live site we can see (if possible)
+ * Unit Tests
+ * Demonstration of CSS knowledge
+ * A detailed README explaining assumptions / decisions
+ * A live site we can see
 
 ## Apps
 
