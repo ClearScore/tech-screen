@@ -23,8 +23,8 @@ It is now up to you to finish the feature ready to release.
 ## The Task
 
 Build our circular score indicator, as shown on [clearscore.com/account/](https://www.clearscore.com/account/) and [https://youtu.be/tIjtcL5Z0Wk?t=5](https://youtu.be/tIjtcL5Z0Wk?t=5).
- * [Desktop example](/docs/score-indicator-desktop.jpg) 
- * [Mobile Example](/docs/score-indicator-mobile.jpg)
+ * [Desktop example](./docs/score-indicator-desktop.jpg) 
+ * [Mobile Example](./docs/score-indicator-mobile.jpg)
 
 Send your solution as a link to a public git repository with clear instructions and your thoughts in the README.
 
