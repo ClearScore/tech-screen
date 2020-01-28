@@ -1,0 +1,57 @@
+.container {
+  color: #000 !important;
+}
+.card {
+  height: 250px;
+  width: auto;
+  background-color: grey;
+  position: relative;
+}
+
+:hover.card {
+  background-color: #80a946;
+  color: #ffffff;
+  animation-timing-function: ease-in-out;
+}
+
+.secondary {
+  background-color: lightgreen;
+  color: #ffffff;
+}
+.text-muted {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Styling Button */
+
+.btn-secondary {
+  width: 200px;
+  height: 131px;
+  background-color: transparent !important;
+  border: none;
+}
+
+@media only screen and (max-width: 600px) {
+  ButtonToggle {
+    border: none;
+    background-color: transparent;
+  }
+}
+
+.btn-secondary:focus {
+  border-color: none;
+}
+.btn-secondary:not(:disabled):not(.disabled):active,
+.show > .btn-secondary.dropdown-toggle {
+  background-color: none;
+  border-color: none;
+  border: none;
+}
+.text-muted--add-button {
+  font-size: 50px;
+  width: 200px;
+  height: 200px;
+}
