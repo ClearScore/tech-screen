@@ -46,7 +46,7 @@
     "koa-static": "4.0.2",
     "node-fetch": "2.1.1",
     "node-hook": "1.0.0",
-    "node-sass": "4.8.2",
+    "node-sass": "4.14.1",
     "nodemon": "1.17.2",
     "postcss-loader": "2.1.1",
     "progress-bar-webpack-plugin": "1.11.0",
